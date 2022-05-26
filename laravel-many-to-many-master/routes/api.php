@@ -14,6 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
+Route::middleware('auth:api')->get('/admin', function (Request $request) {
     return $request->user();
 });
+
+Route::get('/posts', 'Api\PostController@index');
+Route::get('/posts/{id}', 'Api\PostController@show');
+Route::delete('/posts/{id}', 'Api\PostController@destroy');
